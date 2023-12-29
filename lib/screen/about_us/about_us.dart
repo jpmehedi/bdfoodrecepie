@@ -8,8 +8,9 @@ class AboutUs extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.white),
         backgroundColor: Colors.red,
-        title: Text("About us"),
+        title: Text("About us", style: TextStyle(color: Colors.white),),
       ),
       body: SingleChildScrollView(
         child: Padding(

@@ -33,7 +33,8 @@ class _CookedState extends State<Cooked> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Cooked"),
+        iconTheme: IconThemeData(color: Colors.white),
+        title: Text("Cooked", style: TextStyle(color: Colors.white),),
         backgroundColor: Colors.red,
       ),
       body: Container(
@@ -43,7 +44,7 @@ class _CookedState extends State<Cooked> {
           builder: (BuildContext context,
               AsyncSnapshot<List<RecipeModel>> snapshot) {
             if (!snapshot.hasData) {
-              return Text("Loading......");
+              return Center(child: Text("Loading......"));
             }
             return isLoading
                 ? CircularProgressIndicator()

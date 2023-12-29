@@ -25,24 +25,25 @@ class CustomGridTile extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Image.asset("$imageUrl"),
-            SizedBox(height: 8,),
+            SizedBox(height: 4,),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: Text(
                 "$title",
                 style: TextStyle(
                   color: Colors.green,
-                  fontSize: 20
+                  fontSize: 16
                 ),
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),
             ),
-           
+
             Padding(
-              padding: const EdgeInsets.all(8),
+              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     children: [

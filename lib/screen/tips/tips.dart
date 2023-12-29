@@ -8,8 +8,9 @@ class CookingTips extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.white),
         backgroundColor: Colors.red,
-        title: Text("Cooking Tips"),
+        title: Text("Cooking Tips", style: TextStyle(color: Colors.white),),
       ),
       body: SingleChildScrollView(
         child: Padding(

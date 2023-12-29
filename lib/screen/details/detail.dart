@@ -52,19 +52,18 @@ Directions: ${_directons.toString()};
     final Map items = ModalRoute.of(context)!.settings.arguments as Map;
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.white),
         backgroundColor: Colors.red,
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Details"),
-            SizedBox(
-              height: 4,
-            ),
+            Text("Details", style: TextStyle(color: Colors.white),),
             Text("Catagory: ${items["category"]}",
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 14,
-                    fontWeight: FontWeight.w500)),
+                    fontWeight: FontWeight.w500),
+            ),
           ],
         ),
         actions: [
@@ -109,10 +108,11 @@ Directions: ${_directons.toString()};
                       child: Center(
                         child: Text(
                           items["data"]['title'],
+                          textAlign: TextAlign.start,
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: 24,
-                              fontWeight: FontWeight.w700),
+                              fontSize: 18,
+                              fontWeight: FontWeight.w700,                            ),
                         ),
                       ),
                     ),
@@ -182,6 +182,7 @@ Directions: ${_directons.toString()};
                         i < items["data"]['ingredients'].length;
                         i++)
                       Row(
+                        // crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
                             width: 8,
@@ -193,11 +194,14 @@ Directions: ${_directons.toString()};
                           SizedBox(
                             width: 8,
                           ),
-                          Text(items["data"]['ingredients'][i],
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w500)),
+                          Expanded(
+                            child: Text(items["data"]['ingredients'][i],
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                          ),
                         ],
                       ),
                     SizedBox(
