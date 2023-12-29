@@ -22,15 +22,19 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+ List items = ["Rice", "Desert", "Bread", "FastFood", "NonVeg1","Desert2", "Bread3", "FastFood4"];
+ List gridColors = [Colors.pink, Colors.red, Colors.yellow, Colors.purple, Colors.green, Colors.blue, Colors.orange, Colors.cyanAccent];
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 5,
       child: Scaffold(
         appBar: AppBar(
+          
           backgroundColor: Colors.red,
           centerTitle: true,
-          title: Text("Bd Food Recipes".toUpperCase()),
+          iconTheme: IconThemeData(color: Colors.white),
+          title: Text("bd food recipes".toUpperCase(), style: TextStyle(color: Colors.white),),
           actions: [
             IconButton(
               onPressed: () {
@@ -40,6 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
             )
           ],
         ),
+        
         drawer: Drawer(
           child: Container(
             color: Colors.black87,
@@ -160,6 +165,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
+
         body: Column(
           children: [
             SizedBox(
@@ -168,10 +174,17 @@ class _HomeScreenState extends State<HomeScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: TabBar(
+                tabAlignment: TabAlignment.start,
                   isScrollable: true,
                   labelPadding: EdgeInsets.symmetric(horizontal: 10),
                   indicatorWeight: 1.0,
+                  indicatorSize: TabBarIndicatorSize.tab,
                   indicatorColor: Colors.orange,
+                  dividerColor: Colors.white,
+                  dividerHeight: 0,
+                  unselectedLabelStyle: TextStyle(
+                    color: Colors.green,
+                  ),
                   labelStyle: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
@@ -180,12 +193,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   labelColor: Colors.white,
                   indicator: BoxDecoration(
                       color: Colors.red,
-                      borderRadius: BorderRadius.circular(4.0)),
+                      borderRadius: BorderRadius.circular(4.0),
+                  ),
                   tabs: [
-                    Tab(
-                        child: Text(
-                      "Rice",
-                    )),
+                    Tab(child: Text("Rice",)),
                     Tab(child: Text("Desert")),
                     Tab(child: Text("Bread")),
                     Tab(child: Text("Fast-Food")),
@@ -197,8 +208,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [Rice(), Desert(), Bread(), FastFood(), NonVeg()]),
             )
           ],
-        ),
       ),
+      )
     );
   }
 }

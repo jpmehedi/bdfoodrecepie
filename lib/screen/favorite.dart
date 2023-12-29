@@ -33,7 +33,8 @@ class _FavoriteState extends State<Favorite> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Favorite"),
+        iconTheme: IconThemeData(color: Colors.white),
+        title: Text("Favorite", style: TextStyle(color: Colors.white),),
         backgroundColor: Colors.red,
       ),
       body: Container(

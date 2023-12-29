@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
@@ -56,24 +58,41 @@ class DbHelper {
   }
 
   Future<int> addFavoriteRecipe(RecipeModel recipeModel) async {
+    if(recipeModel.toJson().isNotEmpty){
+      Fluttertoast.showToast(
+        msg: "This recipe is added your favorite list",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        textColor: Colors.white,
+        fontSize: 16.0
+    );
+    }
     Database db = await instance.database;
     return await db.insert("recipe", recipeModel.toJson());
   }
 
   Future<int> addCookedRecipe(RecipeModel recipeModel) async {
+    if(recipeModel.toJson().isNotEmpty){
+      Fluttertoast.showToast(
+        msg: "This recipe is added your cooked list",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        textColor: Colors.white,
+        fontSize: 16.0
+    );
+    }
     Database db = await instance.database;
     return await db.insert("cooked", recipeModel.toJson());
   }
 
   Future<List<RecipeModel>> getCookedRecipe() async {
+ 
     Database db = await instance.database;
     var cooked = await db.query("cooked", orderBy: "id");
 
-    List<RecipeModel> recipelist = cooked.isNotEmpty
-        ? cooked.map((data) => RecipeModel.fromJson(data)).toList()
-        : [];
-    print('daa; $recipelist');
-
+    List<RecipeModel> recipelist = cooked.isNotEmpty ? cooked.map((data) => RecipeModel.fromJson(data)).toList(): [];
     return recipelist;
   }
 
